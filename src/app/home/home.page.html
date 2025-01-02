@@ -1,7 +1,8 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      G00438835
+      <ion-icon name="settings-outline" style="position:absolute; right:20px; top:2px; cursor:pointer;"></ion-icon>
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -13,8 +14,27 @@
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-item>
+    <!--ion-input [(ngModel)]="searchKW" label="Movie DB search:" placeholder="Enter keyword" style="width:300px;"></ion-input//-->
+    <ion-input label="Enter Country: " placeholder="Enter name of country or part thereof" style="width:100%;"></ion-input>
+  </ion-item>
+<!--ion-item//--> 
+    <!--ion-button (click) = "searchMovieDB()"//-->
+        <!--ion-button>
+         <ion-icon name="search"></ion-icon>
+        </ion-button//-->
+
+  <!--/ion-item//-->
+    <!--ion-button//-->
+    <!--ion-button (click) = "searchMovieDB()"//-->
+
+    <!--/ion-button//-->
+    <ion-button expand="block"><ion-icon name="search"></ion-icon>&nbsp;Search</ion-button>
+
+    <!--ion-toolbar>
+      <ion-buttons slot="primary">
+        <ion-button size="medium"> Favorite </ion-button>
+      </ion-buttons>
+    </ion-toolbar//-->
+    
 </ion-content>
