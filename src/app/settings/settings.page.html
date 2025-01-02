@@ -9,7 +9,7 @@
 
 <ion-content [fullscreen]="true">
   <br>
-  <ion-radio-group value="fixed" [allowEmptySelection]="true" value="metric" style="position:absolute; left:10px;">
+  <ion-radio-group [allowEmptySelection]="true" [(ngModel)]="selUnit" style="position:absolute; left:10px;" (ionChange)="setUnit($event.detail.value)">
     <ion-radio value="metric" labelPlacement="fixed">Metric</ion-radio><br /><br />
     <ion-radio value="standard" labelPlacement="fixed">Standard</ion-radio><br /><br />
     <ion-radio value="empirial" labelPlacement="fixed">Empirial</ion-radio>
