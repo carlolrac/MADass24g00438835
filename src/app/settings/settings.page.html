@@ -1,13 +1,17 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>settings</ion-title>
+    <ion-buttons slot="end">
+      <ion-back-button default-href="#"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">settings</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <br>
+  <ion-radio-group value="fixed" [allowEmptySelection]="true" value="metric" style="position:absolute; left:10px;">
+    <ion-radio value="metric" labelPlacement="fixed">Metric</ion-radio><br /><br />
+    <ion-radio value="standard" labelPlacement="fixed">Standard</ion-radio><br /><br />
+    <ion-radio value="empirial" labelPlacement="fixed">Empirial</ion-radio>
+  </ion-radio-group>
 </ion-content>

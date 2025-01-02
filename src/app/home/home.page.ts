@@ -3,12 +3,13 @@ import { IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonIcon, IonInp
 import { addIcons } from 'ionicons';
 import { settingsOutline } from 'ionicons/icons';
 import { search } from 'ionicons/icons';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonIcon, IonInput, IonItem],
+  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonIcon, IonInput, IonItem, RouterLink],
 })
 
 export class HomePage {
