@@ -20,8 +20,6 @@ export class SettingsPage implements OnInit {
 
   ngOnInit() {
     this.getUnit();
-    //let test = this.getUnit();
-    //console.log(test);
   }
 
   async getUnit() {

@@ -15,8 +15,10 @@ export const routes: Routes = [
     loadComponent: () => import('./settings/settings.page').then( m => m.SettingsPage)
   },
   {
-    path: 'countries',
+    //path: 'countries',
+    path: 'countries/:searchKW',
     loadComponent: () => import('./countries/countries.page').then( m => m.CountriesPage)
+    //loadChildren: () => import('./countries/countries.page').then( m => m.CountriesPage)
   },
   {
     path: 'news',
