@@ -15,6 +15,9 @@ export class NewsPage implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
+    //https://newsdata.io/api/1/news?apikey=pub_64198053d3530d485c9aa7c029dcf45e80aa8&country=cl&language=en 
+
   }
 
 }
