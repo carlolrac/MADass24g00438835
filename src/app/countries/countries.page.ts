@@ -1,23 +1,34 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonBackButton } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonBackButton, IonImg, IonCardTitle, IonCard, IonCardHeader, IonCardSubtitle, IonCardContent, IonButton } from '@ionic/angular/standalone';
 //import { ActivatedRoute } from '@angular/router';
 import { MyUnitService } from '../services/my-unit.service';
+import { MyHttpServiceService } from '../services/my-http-service.service';
+import { CapacitorHttp, HttpResponse } from '@capacitor/core';
+import { HttpOptions } from '@capacitor/core';
+//import { }
 
 @Component({
   selector: 'app-countries',
   templateUrl: './countries.page.html',
   styleUrls: ['./countries.page.scss'],
   standalone: true,
-  imports: [IonBackButton, IonButtons, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [IonButton, IonCardContent, IonCardSubtitle, IonCardHeader, IonCard, IonCardTitle, IonImg, IonBackButton, IonButtons, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
 })
+
 export class CountriesPage implements OnInit {
 
   //searchKW: any = "";
   searchKW:String = "";
+  returnedData!: any;
+  countries!: any;
 
-  constructor(private mus:MyUnitService) {}
+  options: HttpOptions = {
+    url: 'https://restcountries.com/v3.1/name/'
+  }
+
+  constructor(private mus:MyUnitService, private mhs:MyHttpServiceService) {}
 
   //constructor(private activatedRoute: ActivatedRoute) { }
 
@@ -36,6 +47,11 @@ export class CountriesPage implements OnInit {
       console.log(error);
     }
 
+  this.options.url = this.options.url + this.searchKW;
+  console.log(this.options.url);
+
+    this.getCountries();
+
     /*
     if (this.unit === null) {
       this.selUnit = "metric";
@@ -44,6 +60,11 @@ export class CountriesPage implements OnInit {
       this.selUnit = this.unit;
     }
     */
+  }
+
+  async getCountries() {
+    this.countries = await this.mhs.get(this.options);
+    console.log(JSON.stringify(this.countries))
   }
 
 

@@ -8,9 +8,29 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">countries</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <!--ul style>
+    <li *ngFor="let country of countries">
+      <ion-img src="{{country.flags.png}}" alt="The flag of {{country.name.official}}">
+      </ion-img>
+      <p>
+        {{country.name.official}}
+      </p>
+    </li>
+  </ul//-->
+
+
+  <ion-card *ngFor="let country of countries">
+    <ion-img alt="The flag of {{country.name.official}}" src="{{country.flags.png}}" style="width:100%;"/>
+    <ion-card-header>
+      <ion-card-title>{{country.name.common}}</ion-card-title>
+      <ion-card-subtitle>{{country.name.official}}</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-button expand="block" fill="outline">News</ion-button>
+      <ion-button expand="block" fill="outline">Weather</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+
 </ion-content>

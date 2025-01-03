@@ -11,6 +11,7 @@ import { MyUnitService } from '../services/my-unit.service';
   standalone: true,
   imports: [IonBackButton, IonButtons, IonRadioGroup, IonRadio, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
 })
+
 export class SettingsPage implements OnInit {
 
   unit:String = "metric";
