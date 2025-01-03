@@ -5,6 +5,7 @@ import { settingsOutline } from 'ionicons/icons';
 import { search } from 'ionicons/icons';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { MyUnitService } from '../services/my-unit.service';
 
 @Component({
   selector: 'app-home',
@@ -17,11 +18,17 @@ export class HomePage {
 
   searchKW:String = "";
 
-  constructor() { addIcons({settingsOutline, search}); }
+  constructor(private mus:MyUnitService) { addIcons({settingsOutline, search}); }
 
-  setSearchKW(searchKW:String) {
-    this.searchKW = searchKW;
-    console.log(this.searchKW)
+  //constructor(private mus:MyUnitService) { }
+
+  //setSearchKW(searchKW:String) {
+   // this.searchKW = searchKW;
+   // console.log(this.searchKW)
+  //}
+
+  async setSearchKW(searchKW:String) {
+    this.mus.set("searchKW",searchKW);
   }
 
   }
