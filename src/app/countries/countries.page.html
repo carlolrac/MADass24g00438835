@@ -33,7 +33,7 @@
       <!--ion-input #my{{country.cca2}} value="{{country.cca2}}"></ion-input//-->
       <!--input [hidden]=hidden #myCCA2_i value="{{country.cca2}}"//-->
       <ion-button (click) = "setCCA2(i)" [routerLink]="['/news']" expand="block" fill="outline">News</ion-button>
-      <ion-button expand="block" fill="outline">Weather</ion-button>
+      <ion-button (click) = "setCapital(i)" [routerLink]="['/weather']" expand="block" fill="outline">Weather</ion-button>
     </ion-card-content>
   </ion-card>
 
