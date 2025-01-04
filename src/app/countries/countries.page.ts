@@ -86,7 +86,7 @@ export class CountriesPage implements OnInit {
       console.log(country.cca2);
       this.cca2s.push(country.cca2);
       this.countryNames.push(country.name.official);
-      this.capitals.push(country.capital);
+      this.capitals.push(country.capital[0]);
       this.capitalsLatLng.push(country.latlng);
     });
   

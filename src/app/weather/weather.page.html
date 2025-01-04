@@ -8,16 +8,17 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-card *ngFor="let weather of climate; let i = index">
-    <ion-img alt="weather-symbol" src="https://openweathermap.org/img/wn/{{weather.icon}}@2x.png" style="width:20%;"/>
+  <h3 style="padding:10px;">Weather for {{capital}}</h3>
+  <ion-card *ngFor="let weather of climate; let i = index" style="background-color:rgb(202, 207, 231)">
+    <ion-img alt="weather-symbol" src="https://openweathermap.org/img/wn/{{weather.icon}}@2x.png" style="width:30%;"/>
     <ion-card-header>
-      <ion-card-title>{{weather.list.main}}</ion-card-title>
-      <ion-card-subtitle>{{weather.list.description}}</ion-card-subtitle>
+      <ion-card-title>{{weather.main}}</ion-card-title>
+      <ion-card-subtitle>{{weather.description}}</ion-card-subtitle>
       <!--ion-card-subtitle>{{country.tld.cca3}}</ion-card-subtitle//-->
     </ion-card-header>
   
     <ion-card-content>
-      <!--p>{{country.array}}</p//-->
+      <p>{{temperature}} ({{unit}})</p>
       <!--input (ionChange)="setCCA2_2(this.cca2Val)" [(ngModel)]="cca2Val" value="{{country.cca2}}"//-->
       <!--ion-input #my{{country.cca2}} value="{{country.cca2}}"></ion-input//-->
       <!--input [hidden]=hidden #myCCA2_i value="{{country.cca2}}"//-->

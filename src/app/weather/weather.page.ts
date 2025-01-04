@@ -25,6 +25,7 @@ export class WeatherPage implements OnInit {
   capitalLat!:any;
   capitalLng!:any;
   unit!:String;
+  temperature!:any;
 
   options: HttpOptions = {
     url: 'https://api.openweathermap.org/data/2.5/weather?lat=',
@@ -64,7 +65,7 @@ export class WeatherPage implements OnInit {
       this.options.url = this.options.url + this.capitalLat;
       this.options.url = this.options.url + "&lon=" + this.capitalLng;
       this.options.url = this.options.url + "&units=" + this.unit;
-      this.options.url = this.options.url + "&appid" + this.api;
+      this.options.url = this.options.url + "&appid=" + this.api;
       console.log(this.options.url);
   
       this.getWeather();
@@ -80,7 +81,10 @@ export class WeatherPage implements OnInit {
     }
 
     async getWeather() {
-      this.climate = await this.mhs.get(this.options);
+      let climateTmp = await this.mhs.get(this.options);
+      this.climate = climateTmp.weather;
+
+      this.temperature = climateTmp.main.temp;
   
     //  this.countries.forEach((country:any) => {
     //    console.log(country.cca2);
