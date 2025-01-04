@@ -1,13 +1,30 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>news</ion-title>
+    <ion-buttons slot="end">
+      <ion-back-button default-href="#"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">news</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <h5 [hidden]="hidden" style="padding-left:20px;">No news found for<br>{{countryName}}</h5>
+  <h5 [hidden]="!hidden" style="padding-left:20px;">News for<br>{{countryName}}</h5>
+  <ion-card *ngFor="let news of allNews; let i = index">
+    <ion-img *ngIf="news.image_url" src="{{news.image_url}}" style="width:100%;" (error)="onImageError(i)" />
+    <ion-card-header>
+      <ion-card-title>{{news.title}}</ion-card-title>
+      <ion-card-subtitle>{{news.description}}</ion-card-subtitle>
+      <!--ion-card-subtitle>{{country.tld.cca3}}</ion-card-subtitle//-->
+    </ion-card-header>
+  
+    <ion-card-content>
+      <a href="{{news.link}}" style="font-size:small">Go to original report</a>
+      <!--input (ionChange)="setCCA2_2(this.cca2Val)" [(ngModel)]="cca2Val" value="{{country.cca2}}"//-->
+      <!--ion-input #my{{country.cca2}} value="{{country.cca2}}"></ion-input//-->
+      <!--ion-input #myCCA2_i value="{{country.cca2}}"></ion-input>
+      <ion-button (click) = "setCCA2_2(i)" [routerLink]="['/news']" expand="block" fill="outline">News</ion-button>
+      <ion-button expand="block" fill="outline">Weather</ion-button//-->
+    </ion-card-content>
+  </ion-card>
 </ion-content>

@@ -28,11 +28,11 @@
     </ion-card-header>
   
     <ion-card-content>
-      <p>{{country.array}}</p>
+      <!--p>{{country.array}}</p//-->
       <!--input (ionChange)="setCCA2_2(this.cca2Val)" [(ngModel)]="cca2Val" value="{{country.cca2}}"//-->
       <!--ion-input #my{{country.cca2}} value="{{country.cca2}}"></ion-input//-->
-      <ion-input #myCCA2_i value="{{country.cca2}}"></ion-input>
-      <ion-button (click) = "setCCA2_2(i)" expand="block" fill="outline">News</ion-button>
+      <!--input [hidden]=hidden #myCCA2_i value="{{country.cca2}}"//-->
+      <ion-button (click) = "setCCA2(i)" [routerLink]="['/news']" expand="block" fill="outline">News</ion-button>
       <ion-button expand="block" fill="outline">Weather</ion-button>
     </ion-card-content>
   </ion-card>

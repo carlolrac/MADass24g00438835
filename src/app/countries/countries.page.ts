@@ -7,6 +7,7 @@ import { MyUnitService } from '../services/my-unit.service';
 import { MyHttpServiceService } from '../services/my-http-service.service';
 import { CapacitorHttp, HttpResponse } from '@capacitor/core';
 import { HttpOptions } from '@capacitor/core';
+import { RouterLink } from '@angular/router';
 //import { }
 
 @Component({
@@ -14,7 +15,9 @@ import { HttpOptions } from '@capacitor/core';
   templateUrl: './countries.page.html',
   styleUrls: ['./countries.page.scss'],
   standalone: true,
-  imports: [IonInput, IonButton, IonCardContent, IonCardSubtitle, IonCardHeader, IonCard, IonCardTitle, IonImg, IonBackButton, IonButtons, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonInput]
+  imports: [IonButton, IonCardContent, IonCardSubtitle, IonCardHeader, IonCard, 
+            IonCardTitle, IonImg, IonBackButton, IonButtons, IonContent, IonHeader, IonTitle, 
+            IonToolbar, CommonModule, FormsModule, RouterLink]
 })
 
 export class CountriesPage implements OnInit {
@@ -25,6 +28,12 @@ export class CountriesPage implements OnInit {
   countries!: any;
   cca2Val!: any;
   cca2s: any[] = [];
+  countryNames: any[] = [];
+  capitals: any[] = [];
+  capitalsLatLng: any[] = [];
+  
+
+  hidden:boolean = true;
 
   @ViewChild('myCCA2_1') input!: IonInput;
 
@@ -37,8 +46,12 @@ export class CountriesPage implements OnInit {
   //constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    let timeInMs = 500;
+    let timeout= setTimeout( () => {
+      this.getSearchKW();
+    }, timeInMs );
     //this.searchKW = this.activatedRoute.snapshot.paramMap.get('searchKW');
-    this.getSearchKW();
+    //this.getSearchKW();
     //console.log(this.searchKW);
   }
 
@@ -72,25 +85,33 @@ export class CountriesPage implements OnInit {
     this.countries.forEach((country:any) => {
       console.log(country.cca2);
       this.cca2s.push(country.cca2);
+      this.countryNames.push(country.name.official);
+      this.capitals.push(country.capital);
+      this.capitalsLatLng.push(country.latlng);
     });
   
 
     //console.log(JSON.stringify(this.countries))
   }
 
-  async setCCA2() {
-    //this.countries = await this.mhs.get(this.options);
-    console.log(this.cca2Val);
-    console.log(this.input.value);
-  }
+  //async setCCA2() {
+  //  //this.countries = await this.mhs.get(this.options);
+  //  console.log(this.cca2Val);
+  //  console.log(this.input.value);
+  //}
 
-  async setCCA2_2(index: any) {
+  //async setCCA2_2(index: any) {
+  setCCA2(index: any) {
+    this.mus.set("country", this.cca2s[index]);
+    this.mus.set("countryName", this.countryNames[index]);
+
+    this.mus.set("capital", this.capitals[index]);
+    this.mus.set("latlng", this.capitalsLatLng[index]);
+
     //this.countries = await this.mhs.get(this.options);
     console.log(index);
     //console.log(this.input.value);
     console.log(this.cca2s[index]);
-    this.mus.set("country", this.cca2s[index]);
-
   }
 
 
