@@ -19,7 +19,7 @@
   </ul//-->
 
 
-  <ion-card *ngFor="let country of countries; let i = index">
+  <ion-card *ngFor="let country of countries; let i = index" style="background-color:rgb(223, 244, 253)">
     <ion-img alt="The flag of {{country.name.official}}" src="{{country.flags.png}}" style="width:100%;"/>
     <ion-card-header>
       <ion-card-title>{{country.name.common}}</ion-card-title>

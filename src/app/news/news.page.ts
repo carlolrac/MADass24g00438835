@@ -53,15 +53,9 @@ export class NewsPage implements OnInit {
     } catch (error) {
       console.log(error);
     }
-
-    
-
-
   }
 
   getNews(urlFull:any) {
-
-    //this.mds.get("https://newsdata.io/api/1/news?apikey=pub_64198053d3530d485c9aa7c029dcf45e80aa8&country=gb&language=en").subscribe(
     this.mds.get(urlFull).subscribe(
         {
         next: (data) => {

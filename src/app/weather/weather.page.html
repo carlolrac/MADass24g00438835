@@ -9,7 +9,7 @@
 
 <ion-content [fullscreen]="true">
   <h3 style="padding:10px;">Weather for {{capital}}</h3>
-  <ion-card *ngFor="let weather of climate; let i = index" style="background-color:rgb(202, 207, 231)">
+  <ion-card *ngFor="let weather of climate; let i = index" style="background-color:rgb(255, 239, 135)">
     <ion-img alt="weather-symbol" src="https://openweathermap.org/img/wn/{{weather.icon}}@2x.png" style="width:30%;"/>
     <ion-card-header>
       <ion-card-title>{{weather.main}}</ion-card-title>
