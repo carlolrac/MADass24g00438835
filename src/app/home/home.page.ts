@@ -20,15 +20,8 @@ export class HomePage {
 
   constructor(private mus:MyUnitService) { addIcons({settingsOutline, search}); }
 
-  //constructor(private mus:MyUnitService) { }
-
-  //setSearchKW(searchKW:String) {
-   // this.searchKW = searchKW;
-   // console.log(this.searchKW)
-  //}
-
   async setSearchKW(searchKW:String) {
     this.mus.set("searchKW",searchKW);
   }
 
-  }
+}

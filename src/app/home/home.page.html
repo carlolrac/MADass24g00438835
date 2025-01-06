@@ -15,26 +15,9 @@
   </ion-header>
 
   <ion-item>
-    <!--ion-input [(ngModel)]="searchKW" label="Movie DB search:" placeholder="Enter keyword" style="width:300px;"></ion-input//-->
     <ion-input (ionChange) = "setSearchKW(searchKW)" [(ngModel)]="searchKW" label="Enter Country: " placeholder="Enter name of country or part thereof" style="width:100%;"></ion-input>
   </ion-item>
-<!--ion-item//--> 
-    <!--ion-button (click) = "searchMovieDB()"//-->
-        <!--ion-button>
-         <ion-icon name="search"></ion-icon>
-        </ion-button//-->
 
-  <!--/ion-item//-->
-    <!--ion-button//-->
-    <!--ion-button (click) = "searchMovieDB()"//-->
-
-    <!--/ion-button//-->
-    <ion-button expand="block" [routerLink]="['/countries']"><ion-icon name="search"></ion-icon>&nbsp;Search</ion-button>
-
-    <!--ion-toolbar>
-      <ion-buttons slot="primary">
-        <ion-button size="medium"> Favorite </ion-button>
-      </ion-buttons>
-    </ion-toolbar//-->
+  <ion-button expand="block" [routerLink]="['/countries']"><ion-icon name="search"></ion-icon>&nbsp;Search</ion-button>
     
 </ion-content>

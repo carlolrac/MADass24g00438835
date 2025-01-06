@@ -12,6 +12,7 @@ import { MyUnitService } from '../services/my-unit.service';
   standalone: true,
   imports: [IonCardContent, IonCardSubtitle, IonCardTitle, IonCard, IonImg, IonCardHeader, IonBackButton, IonButtons, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
 })
+
 export class NewsPage implements OnInit {
 
   allNews!: any;
@@ -19,31 +20,22 @@ export class NewsPage implements OnInit {
   hidden:boolean = true;
   countryName!:any;
   news = [{loaded: true},{loaded: true},{loaded: true},{loaded: true},{loaded: true},{loaded: true},{loaded: true},{loaded: true},{loaded:true},{loaded: true}];
-  
-  
+    
   constructor(private mus:MyUnitService, private mds: MyDataService) { }
 
   urlBase: String = "https://newsdata.io/api/1/news?apikey=pub_64198053d3530d485c9aa7c029dcf45e80aa8&country=";
   urlLang: String = "&language=en";
-  //urlFull!: String;
-  //receivedCCA2!: String;
-  // cl&language=en
 
   ngOnInit() {
-
     let timeInMs = 500;
     let timeout= setTimeout( () => {
       this.getCCA2();
-    }, timeInMs );
-    //this.getCCA2();
-    //this.getNews();
-    //https://newsdata.io/api/1/news?apikey=pub_64198053d3530d485c9aa7c029dcf45e80aa8&country=cl&language=en 
+    }, timeInMs );    
   }
 
 
   async getCCA2() {
-    //let recievedCCA2: String = "";
-    try {
+     try {
       let receivedCCA2 = await this.mus.get("country");
       console.log(receivedCCA2);
       let urlFull:any  = this.urlBase + receivedCCA2 + this.urlLang;
@@ -68,7 +60,6 @@ export class NewsPage implements OnInit {
         },
         complete: () => {
           //console.log('complete');
-          //this.allNews = data.results;
         }
       }
     );

@@ -8,34 +8,17 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <!--ul style>
-    <li *ngFor="let country of countries">
-      <ion-img src="{{country.flags.png}}" alt="The flag of {{country.name.official}}">
-      </ion-img>
-      <p>
-        {{country.name.official}}
-      </p>
-    </li>
-  </ul//-->
-
-
   <ion-card *ngFor="let country of countries; let i = index" style="background-color:rgb(223, 244, 253)">
     <ion-img alt="The flag of {{country.name.official}}" src="{{country.flags.png}}" style="width:100%;"/>
     <ion-card-header>
       <ion-card-title>{{country.name.common}}</ion-card-title>
       <ion-card-subtitle>{{country.name.official}}</ion-card-subtitle>
-      <!--ion-card-subtitle>{{country.tld.cca3}}</ion-card-subtitle//-->
     </ion-card-header>
   
     <ion-card-content>
-      <!--p>{{country.array}}</p//-->
-      <!--input (ionChange)="setCCA2_2(this.cca2Val)" [(ngModel)]="cca2Val" value="{{country.cca2}}"//-->
-      <!--ion-input #my{{country.cca2}} value="{{country.cca2}}"></ion-input//-->
-      <!--input [hidden]=hidden #myCCA2_i value="{{country.cca2}}"//-->
       <ion-button (click) = "setCCA2(i)" [routerLink]="['/news']" expand="block" fill="outline">News</ion-button>
       <ion-button (click) = "setCapital(i)" [routerLink]="['/weather']" expand="block" fill="outline">Weather</ion-button>
     </ion-card-content>
   </ion-card>
-
 
 </ion-content>

@@ -6,7 +6,6 @@ import { IonContent, IonHeader, IonTitle, IonToolbar, IonButton, IonCard, IonImg
 import { MyUnitService } from '../services/my-unit.service';
 import { MyHttpServiceService } from '../services/my-http-service.service';
 import { HttpOptions } from '@capacitor/core';
-//import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-weather',
@@ -17,10 +16,8 @@ import { HttpOptions } from '@capacitor/core';
 })
 
 export class WeatherPage implements OnInit {
-
   climate!: any;
   api:String = "c618681616432ab48624042bca68eeb6";
-              //c618681616432ab48624042bca68eeb6
   capital!:any;
   capitalLat!:any;
   capitalLng!:any;
@@ -31,15 +28,11 @@ export class WeatherPage implements OnInit {
     url: 'https://api.openweathermap.org/data/2.5/weather?lat=',
   }
 
-      // LATITUDE 
-    // &lon=LONGITUDE&units=UNITS&appid=YOUR_API_KEY '
-
-
   constructor(private mus:MyUnitService, private mhs:MyHttpServiceService) {}
 
   ngOnInit() {
     let timeInMs = 500;
-    let timeout= setTimeout( () => {
+    let timeout = setTimeout( () => {
       this.getCapitalData();
     }, timeInMs );
   }
@@ -47,13 +40,13 @@ export class WeatherPage implements OnInit {
   async getCapitalData() {
       try {
         this.capital = await this.mus.get("capital");
-        console.log(this.capital);
+        //console.log(this.capital);
         let tmpLatLng = await this.mus.get("latlng");
-        console.log(tmpLatLng);
+        //console.log(tmpLatLng);
         this.capitalLat = tmpLatLng[0];
         this.capitalLng = tmpLatLng[1];
         this.unit = await this.mus.get("unit");
-        console.log(this.unit);
+        //console.log(this.unit);
       } catch (error) {
         console.log(error);
       }
@@ -69,33 +62,13 @@ export class WeatherPage implements OnInit {
       console.log(this.options.url);
   
       this.getWeather();
-  
-      /*
-      if (this.unit === null) {
-        this.selUnit = "metric";
-        this.mus.set("unit","metric");
-      } else {
-        this.selUnit = this.unit;
-      }
-      */
     }
 
     async getWeather() {
       let climateTmp = await this.mhs.get(this.options);
       this.climate = climateTmp.weather;
-
       this.temperature = climateTmp.main.temp;
-  
-    //  this.countries.forEach((country:any) => {
-    //    console.log(country.cca2);
-    //    this.cca2s.push(country.cca2);
-    //    this.countryNames.push(country.name.official);
-    //    this.capitals.push(country.capital);
-    //    this.capitalsLatLng.push(country.latlng);
-    //  });
-    
-  
-      console.log(JSON.stringify(this.climate));
+       //console.log(JSON.stringify(this.climate));
     }
   }
 
